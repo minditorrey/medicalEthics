@@ -1,19 +1,24 @@
-var app = angular.module('myFaceApp', ['ui.router']);
+var app = angular.module('medicalethicsApp', ['ui.router']);
 
 
 
 app.config(function($stateProvider, $urlRouterProvider) {
 
 	$stateProvider
-		.state('users', {
-			url: '/',
-			templateUrl: '/templates/users.html',
-			controller: 'usersController'
+		.state('posts', {
+			url: '/posts',
+			templateUrl: '/templates/posts.html',
+			controller: 'postsController'
 		})
-		.state('register', {
-			url: '/register',
-			templateUrl: '/templates/users.html',
-			controller: 'usersController'
+		.state('pitches', {
+			url: '/pitches',
+			templateUrl: '/templates/pitches.html',
+			controller: 'pitchesController'
+		})
+		.state('resources', {
+			url: '/resources',
+			templateUrl: '/templates/resources.html',
+			controller: 'resourcesController'
 		})
 
 

@@ -13,7 +13,7 @@ var cookieParser = require('cookie-parser');
  
 require('dotenv').config();
 
-const MONGOURL = process.env.MONGODB_URI || 'mongodb://localhost/my-face';
+const MONGOURL = process.env.MONGODB_URI || 'mongodb://localhost/medicalethicsApp';
 
 mongoose.connect(MONGOURL, err => {
 	console.log(err || `Connected to MongoDB at ${MONGOURL}`)
