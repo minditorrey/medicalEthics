@@ -8,10 +8,7 @@ var bodyParser = require('body-parser');
 var http = require('http');
 var path = require('path');
 var mongoose = require('mongoose');
-var jwt = require('jsonwebtoken');
-var cookieParser = require('cookie-parser');
- 
-require('dotenv').config();
+
 
 const MONGOURL = process.env.MONGODB_URI || 'mongodb://localhost/medicalethicsApp';
 
@@ -20,7 +17,7 @@ mongoose.connect(MONGOURL, err => {
 });
 
 var app = express();
-app.use(cookieParser());
+
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));

@@ -6,12 +6,14 @@
   <!-- <link rel="stylesheet" href="/bower_components/sweetalert/dist/sweetalert.css"> -->
   <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css">
-  <link rel="stylesheet" href="style.css">
+  <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="styles/style.css">
+
   <script src="/bower_components/jquery/dist/jquery.min.js"></script>
   <script src="/bower_components/angular/angular.min.js"></script>
   <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
   <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="/bower_components/sweetalert/dist/sweetalert.min.js"></script> -->
+  
   <script src="/js/module.js"></script>
   <script src="/js/controllers.js"></script>
   <script src="/js/services.js"></script>
@@ -19,7 +21,30 @@
 
 <body ng-app='medicalethicsApp'>
 
-
+  <header class="site-header" role="banner">
+    <div class="navbar-wrapper">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div> <!-- navbar-header -->
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="active"><a href="/">Home</a></li>
+              <li><a ui-sref="posts">Content</a></li>
+              <li><a ui-sref="pitches">Pitches</a></li>
+              <li><a ui-sref="resources">Resources</a></li>
+            </ul>
+          </div> <!-- navbar-collapse -->
+        </div> <!-- container -->
+      </div> <!-- navbar -->
+    </div> <!-- wrapper -->
+  </header>
 
 <ui-view></ui-view>
 

@@ -1,0 +1,24 @@
+{
+  "name": "medical-ethics",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "Mindi Torrey"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/minditorrey/medicalEthics",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-ui-router": "^0.3.1",
+    "bootstrap": "^3.3.7",
+    "moment": "^2.14.1"
+  }
+}

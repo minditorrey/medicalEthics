@@ -3,6 +3,10 @@
 var app = angular.module('medicalethicsApp');
 
 
+app.controller('homeController', function($scope) {
+    console.log('homeCtrl!');
+
+});
 app.controller('postsController', function($scope) {
     console.log('postsCtrl!');
 

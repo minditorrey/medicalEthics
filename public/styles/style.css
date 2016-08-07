@@ -1,0 +1,57 @@
+/*GLOBAL*/
+
+body {
+	color: white;
+	margin-top: 50px;
+	font-family: 'proxima-nova', 'Raleway', Helvetica;
+	font-size: 16px;
+	background: url('../images/tile.jpg') top left repeat;
+}
+
+h1 {
+	text-align: center;
+}
+
+
+/*HERO*/
+
+#hero {
+	background: url('../images/hero-image.jpg') 100% 0 fixed;
+	min-height: 500px;
+	padding: 40px 0;
+	color: white;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizelegibility;	
+}
+
+
+#hero h1 {
+	font-size: 3em;
+}
+
+#hero p {
+	font-size: 1.6em;
+	text-align: center;
+}
+
+/*ROLES*/
+
+#roles {
+	color: #777;
+}
+
+#roles p {
+	margin-top: 5%;
+	padding: 0 10%;
+}
+
+#roles h1 {
+	text-align: left;
+	padding: 0 10%;
+}
+
+#roles .image-container {
+	display: flex;
+  	justify-content: center;
+  	margin-top: 5%;
+}

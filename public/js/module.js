@@ -5,6 +5,11 @@ var app = angular.module('medicalethicsApp', ['ui.router']);
 app.config(function($stateProvider, $urlRouterProvider) {
 
 	$stateProvider
+		.state('home', {
+			url: '/',
+			templateUrl: '/templates/home.html',
+			controller: 'homeController'
+		})
 		.state('posts', {
 			url: '/posts',
 			templateUrl: '/templates/posts.html',

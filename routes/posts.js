@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var stormpath = require('express-stormpath');
 var Post = require('../models/post');
 
 router.get('/', (req, res) => {

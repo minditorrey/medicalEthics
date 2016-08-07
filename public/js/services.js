@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('medicalEthicsApp');
+var app = angular.module('medicalethicsApp');
 
 app.service('PostsService', function($http) {
 	this.getAll = () => {
