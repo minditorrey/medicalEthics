@@ -22,4 +22,11 @@ app.service('PostsService', function($http) {
   	this.getThisPost = (id) => {
   		return $http.get(`/api/posts/${id}`);
   	};
+
+  	this.updateLikes = post => {
+      return $http.put(`/api/posts/likes/${post._id}`, post);
+    }
+    this.updateDislikes = post => {
+      return $http.put(`/api/posts/dislikes/${post._id}`, post);
+    }
 });

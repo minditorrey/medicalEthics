@@ -24,7 +24,7 @@
 
   <header class="site-header" role="banner">
     <div class="navbar-wrapper">
-      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="navbar navbar-fixed-top" role="navigation">
         <div class="container">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -49,6 +49,25 @@
 
 <ui-view></ui-view>
 
-
+  <footer>
+    <div class="container">
+      <div class="col-sm-3">
+        <p><a href="/"><img src="assets/img/logo.png" alt="Logo"></a></p>
+      </div>
+      <div class="col-sm-6">
+        <nav>
+          <ul class="list-unstyled list-inline">
+            <li><a ui-sref="home">Home</a></li>
+            <li><a ui-sref="posts">Content</a></li>
+            <li><a ui-sref="pitches">Pitches</a></li>
+            <li><a ui-sref="resources">Resources</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="col-sm-3">
+        <p class="pull-right">&copy; 2016 Mindi Torrey</p>
+      </div>
+    </div>
+  </footer>
   </body>
 </html>

@@ -10,6 +10,57 @@ body {
 
 h1 {
 	text-align: center;
+	font-size: 3em;
+}
+
+p {
+	font-size: 1.6em;
+}
+
+header .navbar {
+	background-color: #3e4249;
+}
+
+header .navbar a {
+	color: white;
+}
+
+header .navbar a:hover {
+	color: #5c8bc4;
+}
+
+.feature-image {
+	width: 100%;
+}
+
+.feature-image-default {
+	background: url('../images/hero-image.jpg') 100% 0 fixed;
+	min-height: 300px;
+	padding: 40px 0;
+	color: white;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizelegibility;	
+}
+
+/*FOOTER*/
+
+footer {
+	background-color: #3e4249;
+	color: white;
+	padding: 20px 0 10px;
+	font-size: 12px;
+}
+
+footer p {
+	margin: 0;
+}
+
+footer a:link, footer a:visited {
+	color: white;
+}
+
+footer a:hover {
+	color: #5c8bc4;
 }
 
 
@@ -24,15 +75,10 @@ h1 {
 	text-rendering: optimizelegibility;	
 }
 
-
-#hero h1 {
-	font-size: 3em;
-}
-
 #hero p {
-	font-size: 1.6em;
 	text-align: center;
 }
+/*MAIN*/
 
 /*ROLES*/
 
@@ -43,6 +89,7 @@ h1 {
 #roles p {
 	margin: 5% 0;
 	padding: 0 10%;
+	font-size: 1.4em;
 }
 
 #roles h1 {
@@ -55,6 +102,8 @@ h1 {
   	justify-content: center;
   	margin-top: 5%; 	
 }
+
+/*USES*/
 
 #uses {
 	background-color: #5c8bc4;
@@ -70,7 +119,90 @@ h1 {
 	display: inline-block;
 	margin: 5% 2% 5% 0;
 	width: 31.33%;
-	min-height: 265px;
+	min-height: 285px;
 }
+
+#uses .thumbnail p {
+	font-size: 1.2em;
+}
+
+
+/*POSTS*/
+
+#postFeature h1 {
+	padding: 5%;
+}
+
+#postFeature p {
+	text-align: center;
+	font-size: 1.3em;
+}
+
+#postFeature p:nth-child(1n) {
+	padding-bottom: 5%;
+}
+
+#postFeature p:nth-child(2n) {
+	padding-bottom: 0;
+}
+
+#chapters h2 {
+	color: #428BCA;
+	text-align: center;
+	margin: 5% 0;
+}
+
+#tabs .nav-pills > li > a {
+	border: 2px solid #428BCA;
+  	border-radius: 4px 4px 0 0 ;
+}
+
+#content {
+	border: 2px solid #428BCA;
+	margin-bottom: 3%;
+}
+
+#content h3, h6 {
+	text-align: center;
+	color: #428BCA;
+}
+
+#content .header {
+	margin: 3% 0;
+}
+
+#content .posts {
+	color: #777;
+}
+
+#content .posts p {
+	color: #777;
+	font-size: 1em;
+	text-align: center;
+}
+
+#content .posts p.authors {
+	margin-top: 5%;
+	color: #428BCA;
+}
+#content .posts p.time {
+	color: #428BCA;
+}
+
+#content .posts p.text {
+	text-align: left;
+	margin-top: 2%;
+}
+
+#content .posts .btn-danger {
+	float: right;
+}
+
+#content .searchInput {
+	margin-top: 2%;
+	border: 2px solid #428BCA;
+	color: #428BCA;
+
+
 
 

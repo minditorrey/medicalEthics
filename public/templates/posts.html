@@ -1,1 +1,75 @@
-<h1>Posts</h1>
+<!-- Feature Image -->
+
+<section id="postFeature" class="feature-image feature-image-default" data-type="background" data-speed="2">
+	<h1>Course Content</h1>
+		<p>Archive the results of your collaboration here. This page serves as a great resource for research and review.</p>
+</section>
+
+<main id="chapters">
+	<div class="container header">
+		<h2>Select a Chapter</h2>
+	</div>
+	<div id="tabs" class="container">	
+		<ul class="nav nav-pills">
+			<li id="two" class="active">
+       			<a  href="#1a" data-toggle="tab">Chapter 2</a>
+			</li>
+			<li id="three">
+				<a href="#2a" data-toggle="tab">Chapter 3</a>
+			</li>
+			<li id="four">
+				<a href="#3a" data-toggle="tab">Chapter 4</a>
+			</li>
+  			<li id="five">
+  				<a href="#4a" data-toggle="tab">Chapter 5</a>
+			</li>
+			<li id="six">
+  				<a href="#4a" data-toggle="tab">Chapter 6</a>
+			</li>
+			<li id="seven">
+  				<a href="#4a" data-toggle="tab">Chapter 7</a>
+			</li>
+			<li id="eight">
+  				<a href="#4a" data-toggle="tab">Chapter 8</a>
+			</li>			
+			<li id="nine">
+  				<a href="#4a" data-toggle="tab">Chapter 9</a>
+			</li>
+			<li id="ten">
+  				<a href="#4a" data-toggle="tab">Chapter 10</a>
+			</li>
+		</ul>
+	</div>
+	<div id="content">
+		<div class="row header">
+			<div class="col-sm-8 col-sm-offset-2">
+				<button class='btn btn-lg btn-primary'>Add Post</button><br>
+				<input placeholder="Search posts by..." class = "searchInput" type="text" ng-model="sortByName">
+			</div>
+		</div>
+		
+		<div class="posts row">	
+			<div class="col-sm-8 col-sm-offset-2 well" class="container" ng-repeat="post in posts | filter: sortByName">
+			<h3>{{post.topic}}</h3>
+			<h6>Chapter {{post.chapter}}</h6>
+			<hr>
+				<p class="text">{{post.text}}</p>
+				<hr>
+				<p class= "authors">Submitted by: {{post.names}}</p>
+				<p class="time">at: {{post.date | date: 'h:mm a M/d/yy'}}</p>
+				<p>{{post.tag}}</p>
+				<button class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i>
+				</button>
+				<div class="col-sm-3 likes">
+    				<label for="postLikes"> <i class="fa fa-thumbs-up" aria-hidden="true"></i> {{post.likes}}</label>	
+    				<a id="postLikes" ng-click="likeIt(post)" class="btn like">Like</a>		
+    			</div>
+    			<div class="likeBtns col-sm-3">
+    				<label for="postDislikes"> <i class="fa fa-thumbs-down" aria-hidden="true"></i> {{post.dislikes}}</label>	
+    				<a id="postDislikes" ng-click="dislikeIt(post)" class="btn dislike">Dislike</a>	
+    			</div>
+
+			</div>
+		</div>
+	</div> <!-- container -->
+</main>
