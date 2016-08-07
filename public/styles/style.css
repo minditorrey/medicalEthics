@@ -41,7 +41,7 @@ h1 {
 }
 
 #roles p {
-	margin-top: 5%;
+	margin: 5% 0;
 	padding: 0 10%;
 }
 
@@ -53,5 +53,24 @@ h1 {
 #roles .image-container {
 	display: flex;
   	justify-content: center;
-  	margin-top: 5%;
+  	margin-top: 5%; 	
 }
+
+#uses {
+	background-color: #5c8bc4;
+}
+
+#uses h1 {
+	margin-top: 5%;
+}
+
+#uses .thumbnail {
+	color: #777;
+	padding: 2%;
+	display: inline-block;
+	margin: 5% 2% 5% 0;
+	width: 31.33%;
+	min-height: 265px;
+}
+
+
