@@ -1,1 +1,109 @@
-<h1>Pitches</h1>
+<!-- FEATURE IMAGE -->
+
+<section id="pitchesFeature" class="feature-image feature-image-default" data-type="background" data-speed="2">
+	<h1>Two Minute Pitches</h1>
+		<p>Upload your Two Minute Pitches here and watch your classmates' Pitches!</p>
+</section>
+
+<!-- Pitches -->
+<main id="pitches">
+	<div class="container header">
+		<h2>Select a Category</h2>
+		<div>
+			
+		</div>
+	</div>
+	<div id="pitchTabs" class="container">	
+		<ul class="nav nav-pills">
+			<li ng-model="doctor">
+       			<a ng-click="myFilter={category:'Doctors and Patients'}" type="button" data-toggle="tab">Doctors and Patients</a>
+			</li>
+			<li ng-model="death">
+				<a ng-click="myFilter={category:'Life and Death'}" type="button" data-toggle="tab">Life and Death</a>
+			</li>
+		</ul>
+	</div>
+	<div id="pitchContent">
+		<div class="row header">
+			<div class="col-sm-8 col-sm-offset-2">
+				<button ng-click="openPitchModal()" class='btn btn-lg btn-primary'>Add Pitch</button>
+				<input placeholder="Search pitches by..." class = "searchInput" type="text" ng-model="sortByName">
+			</div>
+		</div>
+		
+		<div class="pitches row">	
+			<div class="col-sm-8 col-sm-offset-2 well" class="container" ng-repeat="pitch in pitches | filter: sortByName |filter: myFilter">
+			<h2>{{pitch.topic}}</h2>
+			<h6>Category: {{pitch.category}}</h6>
+			<hr>
+			<div class="embed-responsive embed-responsive-4by3">
+				<iframe width="720" height="485" ng-src="{{pitch.link}}" frameborder="0" allowfullscreen></iframe>
+			</div>
+			<hr>
+				<p class= "author">Submitted by: {{pitch.name}}</p>
+				<p class="time">at: {{pitch.date | date: 'h:mm a M/d/yy'}}</p>
+				<div class="col-sm-3 likes">
+    				<label for="pitchLikes"> <i class="fa fa-thumbs-up" aria-hidden="true"></i> {{pitch.likes}}</label>	
+    				<a id="pitchLikes" ng-click="likeIt(pitch)" class="btn like">Nice!</a>		
+    			</div>
+    			<div class="likeBtns col-sm-3">
+    				<label for="pitchDislikes"> <i class="fa fa-thumbs-down" aria-hidden="true"></i> {{pitch.dislikes}}</label>	
+    				<a id="pitchDislikes" ng-click="dislikeIt(pitch)" class="btn dislike">Meh</a>	
+    			</div>
+
+			</div>
+		</div>
+	</div> <!-- container -->
+	<button ui-sref="home" class='btn btn-lg btn-primary left'>&laquo; Home</button>
+	<button ui-sref="posts" class='btn btn-lg btn-primary left'>&laquo; Content</button>
+	<button ui-sref="resources" class='btn btn-lg btn-primary right'>Resources &raquo;</button>
+</main>
+
+<!--  PITCH MODAL -->
+<div class="row">
+    <div class="modal fade" id="pitchModal" tabindex="-1" role="dialog" aria-labelledby="pitchModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Add Your Pitch</h4>
+                </div>
+
+                <div class="modal-body">
+				<form ng-model="pitch">
+                    <label>Category: </label>
+                    <label class="radio-inline">
+                        <input name="category" id="doctor" value="Doctor and Patient" type="radio" required>Doctor and Patient
+                    </label>
+                    <label class="radio-inline">
+                        <input name="category" id="death" value="Life and Death" type="radio" required>Life and Death
+                    </label>
+
+                    <label>Topic: </br>
+                        <textarea id="pitchTopic" Placeholder="Euthanasia" style="width: 300px; height: 50px;" required></textarea>
+                    </label>
+
+                    <label>Name: </br>
+                        <textarea id="pitchName" Placeholder="Rory Gilmore" style="width: 300px; height: 50px;" required></textarea>
+                    </label>
+                    <label>Link: </br>
+                     	<p><span class="gray">1) Go to your youTube video. Click on Share > Embed.</span></p>
+                     	<p class="example"><span class="gray">Your embed code looks something like this: </span></p>
+                     	<p class="example">iframe width="420" height="315" src=" https://www.youtube.com/embed/2EPhFxwKoio" frameborder="0" allowfullscreen>/iframe</p>
+
+                     	<p><span class="gray">2) Copy and paste ONLY the link with NO QUOTES. </span>https://www.youtube.com/embed/2EPhFxwKoio </p>
+                        <textarea id="pitchLink" Placeholder="https://www.youtube.com/embed/2EPhFxwKoio" style="width: 450px; height: 50px;" required></textarea>
+                    </label> 
+                </form>                  
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-secondary green" data-dismiss="modal" ng-click="addPitch(pitch)">Submit</button>
+                    <button type="button" class="btn btn-default" ng-click="cancelPitch()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- end pitch modal -->

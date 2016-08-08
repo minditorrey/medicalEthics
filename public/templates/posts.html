@@ -91,7 +91,7 @@
 
                 <div class="modal-body">
 				<form ng-model="post">
-                    <h4>Chapter: </h4>
+                    <label>Chapter: </label><br>
                     <label class="radio-inline">
                         <input name="chapter" id="two" value="2" type="radio" required>2
                     </label>
@@ -138,7 +138,7 @@
 
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-secondary green" data-dismiss="modal" ng-click="addPost(post)">Submit</button>
-                    <button type="button" class="btn btn-default green" ng-click="cancelPost()">Cancel</button>
+                    <button type="button" class="btn btn-default" ng-click="cancelPost()">Cancel</button>
                 </div>
             </div>
         </div>

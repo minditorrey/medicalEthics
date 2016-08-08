@@ -2,8 +2,10 @@ var app = angular.module('medicalethicsApp', ['ui.router']);
 
 
 
-app.config(function($stateProvider, $urlRouterProvider) {
-
+app.config(function($stateProvider, $urlRouterProvider, $sceProvider) {
+	
+	$sceProvider.enabled(false);
+	
 	$stateProvider
 		.state('home', {
 			url: '/',

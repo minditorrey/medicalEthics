@@ -1,3 +1,5 @@
+<!-- FEATURE IMAGE -->
+
 <section id="resourceFeature" class="feature-image feature-image-default" data-type="background" data-speed="2">
 	<h1>Resources</h1>
 		<p>Add resources here, including links to videos, articles, interviews, etc. Resources must be relevant to the chapter issues and must come from a reliable source (e.g., not the onion).</p>
@@ -72,7 +74,7 @@
 	</div> <!-- container -->
 	<button ui-sref="home" class='btn btn-lg btn-primary left'>&laquo; Home</button>
 	<button ui-sref="posts" class='btn btn-lg btn-primary left'>&laquo; Posts</button>
-	<button ui-sref="pitches" class='btn btn-lg btn-primary right'>Pitches &raquo;</button>
+	<button ui-sref="pitches" class='btn btn-lg btn-primary left'>&laquo; Pitches</button>
 </main>
 
 <!--  RESOURCE MODAL -->
@@ -89,7 +91,7 @@
 
                 <div class="modal-body">
 				<form ng-model="resource">
-                    <h4>Chapter: </h4>
+                    <label>Chapter: </label><br>
                     <label class="radio-inline">
                         <input name="chapter" id="ctwo" value="2" type="radio" required>2
                     </label>
@@ -136,7 +138,7 @@
 
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-secondary green" data-dismiss="modal" ng-click="addResource(resource)">Submit</button>
-                    <button type="button" class="btn btn-default green" ng-click="cancelResource()">Cancel</button>
+                    <button type="button" class="btn btn-default" ng-click="cancelResource()">Cancel</button>
                 </div>
             </div>
         </div>

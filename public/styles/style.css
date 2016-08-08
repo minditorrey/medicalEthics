@@ -42,6 +42,10 @@ header .navbar a:hover {
 	text-rendering: optimizelegibility;	
 }
 
+.feature-image p {
+	text-align: center;
+}
+
 button.btn.left {
 	margin: 0 0 5% 5%;
 }
@@ -49,6 +53,20 @@ button.btn.left {
 button.btn.right {
 	margin: 0 5% 5% 0;
 	float: right;
+}
+
+div.modal label {
+	color: #31BFB1;
+	margin-top: 1%;
+}
+
+div.modal textarea {
+	color: #777;
+}
+
+.green {
+	background-color: #31BFB1;
+	color: white;
 }
 /*FOOTER*/
 
@@ -137,11 +155,6 @@ footer a:hover {
 
 /*POSTS*/
 
-#postFeature p {
-	text-align: center;
-	font-size: 1.3em;
-}
-
 #chapters h2 {
 	color: #428BCA;
 	text-align: center;
@@ -225,11 +238,6 @@ footer a:hover {
 
 /*RESOURCES*/
 
-#resourceFeature p {
-	text-align: center;
-	font-size: 1.3em;
-}
-
 #resources h2 {
 	color: #428BCA;
 	text-align: center;
@@ -308,4 +316,98 @@ footer a:hover {
 }
 #resourceModal p {
 	font-size: .8em;
+}
+
+/*PITCHES*/
+
+#pitches h2 {
+	color: #428BCA;
+	text-align: center;
+	margin: 5% 0;
+}
+
+#pitchTabs {
+	margin: 0 5%;
+}
+
+#pitchTabs .nav-pills > li > a {
+	border: 2px solid #428BCA;
+  	border-radius: 4px 4px 0 0;
+}
+
+#pitchContent {
+	border: 2px solid #428BCA;
+	margin-bottom: 3%;
+	margin: 0 5%;
+	margin-bottom: 5%;
+}
+
+#pitchContent h2, h6 {
+	text-align: left;
+	color: #428BCA;
+	line-height: .2;
+}
+
+#pitchContent .header {
+	margin: 3% 0;
+}
+
+#pitchContent .pitches {
+	color: #777;
+}
+
+#pitchContent .pitches p {
+	color: #777;
+	font-size: 1em;
+}
+
+#pitchContent .pitches p.authors {
+	margin-top: 5%;
+	color: #428BCA;
+}
+#pitchContent .pitches p.time {
+	color: #428BCA;
+}
+
+#pitchContent .pitches p.text {
+	text-align: left;
+	margin-top: 2%;
+	font-size: 1.2em;
+}
+
+#pitchContent .searchInput {
+	margin-top: 2%;
+	border: 2px solid #428BCA;
+	color: #428BCA;
+	float: right;
+}
+
+#pitchContent label {
+	color: #31BFB1;
+}
+
+#pitchLikes, #pitchDislikes {
+	color: #31BFB1;
+
+}
+
+
+/*PITCH MODAL*/
+#pitchModal {
+	color: #777;
+}
+#pitchModal p {
+	font-size: .8em;
+}
+
+#pitchModal span.gray {
+	color: #777;
+}
+
+#pitchModal p {
+	font-size: 1em;
+}
+
+#pitchModal p.example {
+	margin-left: 5%;
 }

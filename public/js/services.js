@@ -46,3 +46,19 @@ app.service('ResourcesService', function($http) {
       return $http.put(`/api/resources/dislikes/${resource._id}`, resource);
     }
 });
+
+app.service('PitchesService', function($http) {
+	this.getAll = () => {
+    	return $http.get('/api/pitches');
+  	};
+  	this.create = pitch => {
+		return $http.post('/api/pitches', pitch);	
+	};
+
+	this.updateLikes = pitch => {
+      return $http.put(`/api/pitches/likes/${pitch._id}`, pitch);
+    }
+    this.updateDislikes = pitch => {
+      return $http.put(`/api/pitches/dislikes/${pitch._id}`, pitch);
+    }
+});

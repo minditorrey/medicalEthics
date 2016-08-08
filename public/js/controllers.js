@@ -107,11 +107,6 @@ app.controller('postsController', function($scope, $state, $rootScope, $statePar
     }
 });
 
-app.controller('pitchesController', function($scope) {
-    console.log('pitchesCtrl!');
-
-});
-
 app.controller('resourcesController', function($scope, ResourcesService) {
     console.log('resourcesCtrl!');
 
@@ -206,9 +201,92 @@ app.controller('resourcesController', function($scope, ResourcesService) {
             swal({ title: "Congrats!", text: "You have added a new resource.",
                 type: "success", closeOnConfirm: true }
             );
-            // $state.go($state.current, {}, {reload: true});
-            
+            // $state.go($state.current, {}, {reload: true}); 
+        });
+    }
+});
+
+app.controller('pitchesController', function($scope, PitchesService) {
+    console.log('pitchesCtrl!');
+
+	PitchesService.getAll()
+    .then(res => {
+        $scope.pitches = res.data;
+        console.log(res.data);
+        var pitches = $scope.pitches;
+    })
+    .catch(err => {
+        console.log('err:', err);
+    });
+
+    $scope.likeIt = (pitch) => {
+		pitch.likes += 1;
+		console.log('likes:', pitch.likes);
+		PitchesService.updateLikes(pitch)
+		.then(res => {
+			console.log('pitch.likes:', $scope.pitches.likes);
+			console.log(res)
+		})
+	}
+
+	$scope.dislikeIt = (pitch) => {
+		pitch.dislikes += 1;
+		pitchsService.updateDislikes(pitch)
+		.then(res => {
+			console.log('pitches.dislikes:', $scope.pitches.dislikes);
+		})	
+	}
+
+	$scope.openPitchModal = function() {
+        $('#pitchModal').modal('show');
+    }
+
+    $scope.cancelPitch = function(){
+        $('#pitchModal').modal('hide');
+    }
+
+
+    $scope.addPitch = function() {
+    	$scope.name = $('#pitchName').val();
+		$scope.category = $('#pitchCategory').val();
+		$scope.topic = $('#pitchTopic').val();
+		$scope.link = $('#pitchLink').val();
+		
+    	if($('#doctor').is(':checked')) {
+            $scope.category = "Doctors and Patients";
+        } else if($('#death').is(':checked')) {
+            $scope.category = "Life and Death";
+        } 
+
+    	var pitch = {
+    		name: $scope.name,
+    		category: $scope.category,
+    		topic: $scope.topic,
+    		link: $scope.link
+    	}
+		console.log('pitch:', pitch);
+
+    	$scope.pitches.push(pitch);
+
+    	if (!$scope.name || !$scope.category || !$scope.topic || !$scope.link) {
+        	swal({ 
+        		title: "Ooops!", 
+        		text: "You must complete all fields. Please click on Add Resource again and fill out all fields.",
+               	type: "warning", 
+               	closeOnConfirm: true 
+            });
+    	}
+
+    	PitchesService.create(pitch)
+        .then( (pitch) => {
+            $('#pitchModal').modal('hide');
+            swal({ title: "Congrats!", text: "You have added a new pitch.",
+                type: "success", closeOnConfirm: true }
+            );
+            // $state.go($state.current, {}, {reload: true}); 
         });
     }
 
 });
+
+
