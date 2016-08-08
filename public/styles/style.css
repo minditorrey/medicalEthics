@@ -42,6 +42,14 @@ header .navbar a:hover {
 	text-rendering: optimizelegibility;	
 }
 
+button.btn.left {
+	margin: 0 0 5% 5%;
+}
+
+button.btn.right {
+	margin: 0 5% 5% 0;
+	float: right;
+}
 /*FOOTER*/
 
 footer {
@@ -134,14 +142,6 @@ footer a:hover {
 	font-size: 1.3em;
 }
 
-#postFeature p:nth-child(1n) {
-	padding-bottom: 5%;
-}
-
-#postFeature p:nth-child(2n) {
-	padding-bottom: 0;
-}
-
 #chapters h2 {
 	color: #428BCA;
 	text-align: center;
@@ -167,7 +167,7 @@ footer a:hover {
 #content h2, h6 {
 	text-align: left;
 	color: #428BCA;
-	line-height: .2;
+	line-height: .6;
 }
 
 #content .header {
@@ -190,6 +190,9 @@ footer a:hover {
 #content .posts p.time {
 	color: #428BCA;
 }
+#content .posts .blue {
+	color: #428BCA;
+}
 
 #content .posts p.text {
 	text-align: left;
@@ -210,7 +213,6 @@ footer a:hover {
 
 #postLikes, #postDislikes {
 	color: #31BFB1;
-
 }
 
 /*POST MODAL*/
@@ -221,7 +223,89 @@ footer a:hover {
 	font-size: .8em;
 }
 
+/*RESOURCES*/
+
+#resourceFeature p {
+	text-align: center;
+	font-size: 1.3em;
+}
+
+#resources h2 {
+	color: #428BCA;
+	text-align: center;
+	margin: 5% 0;
+}
+
+#resourceTabs {
+	margin: 0 5%;
+}
+
+#resourceTabs .nav-pills > li > a {
+	border: 2px solid #428BCA;
+  	border-radius: 4px 4px 0 0;
+}
+
+#resourceContent {
+	border: 2px solid #428BCA;
+	margin-bottom: 3%;
+	margin: 0 5%;
+	margin-bottom: 5%;
+}
+
+#resourceContent h2, h6 {
+	text-align: left;
+	color: #428BCA;
+	line-height: .2;
+}
+
+#resourceContent .header {
+	margin: 3% 0;
+}
+
+#resourceContent .resources {
+	color: #777;
+}
+
+#resourceContent .resources p {
+	color: #777;
+	font-size: 1em;
+}
+
+#resourceContent .resources p.authors {
+	margin-top: 5%;
+	color: #428BCA;
+}
+#resourceContent .resources p.time {
+	color: #428BCA;
+}
+
+#resourceContent .resources p.text {
+	text-align: left;
+	margin-top: 2%;
+	font-size: 1.2em;
+}
+
+#resourceContent .searchInput {
+	margin-top: 2%;
+	border: 2px solid #428BCA;
+	color: #428BCA;
+	float: right;
+}
+
+#resourceContent label {
+	color: #31BFB1;
+}
+
+#resourceLikes, #resourceDislikes {
+	color: #31BFB1;
+
+}
 
 
-
-
+/*RESOURCE MODAL*/
+#resourceModal {
+	color: #777;
+}
+#resourceModal p {
+	font-size: .8em;
+}

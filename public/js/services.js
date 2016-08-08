@@ -30,3 +30,19 @@ app.service('PostsService', function($http) {
       return $http.put(`/api/posts/dislikes/${post._id}`, post);
     }
 });
+
+app.service('ResourcesService', function($http) {
+	this.getAll = () => {
+    	return $http.get('/api/resources');
+  	};
+  	this.create = resource => {
+		return $http.post('/api/resources', resource);	
+	};
+
+	this.updateLikes = resource => {
+      return $http.put(`/api/resources/likes/${resource._id}`, resource);
+    }
+    this.updateDislikes = resource => {
+      return $http.put(`/api/resources/dislikes/${resource._id}`, resource);
+    }
+});

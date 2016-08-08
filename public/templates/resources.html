@@ -1,1 +1,144 @@
-<h1>Resources</h1>
+<section id="resourceFeature" class="feature-image feature-image-default" data-type="background" data-speed="2">
+	<h1>Resources</h1>
+		<p>Add resources here, including links to videos, articles, interviews, etc. Resources must be relevant to the chapter issues and must come from a reliable source (e.g., not the onion).</p>
+</section>
+
+<!-- Main Content -->
+
+<main id="resources">
+	<div class="container header">
+		<h2>Select a Chapter</h2>
+	</div>
+	<div id="resourceTabs" class="container">	
+		<ul class="nav nav-pills">
+			<li ng-model="two">
+       			<a ng-click="myFilter={chapter:'2'}" type="button" data-toggle="tab">Chapter 2</a>
+			</li>
+			<li ng-model="three">
+				<a ng-click="myFilter={chapter:'3'}" type="button" data-toggle="tab">Chapter 3</a>
+			</li>
+			<li ng-model="four">
+				<a ng-click="myFilter={chapter:'4'}" type="button" data-toggle="tab">Chapter 4</a>
+			</li>
+  			<li ng-model="five">
+  				<a ng-click="myFilter={chapter:'5'}" type="button" data-toggle="tab">Chapter 5</a>
+			</li>
+			<li ng-model="six">
+  				<a ng-click="myFilter={chapter:'6'} "type="button" data-toggle="tab">Chapter 6</a>
+			</li>
+			<li ng-model="seven">
+  				<a ng-click="myFilter={chapter:'7'}" type="button" data-toggle="tab">Chapter 7</a>
+			</li>
+			<li ng-model="eight">
+  				<a ng-click="myFilter={chapter:'8'}" type="button" data-toggle="tab">Chapter 8</a>
+			</li>			
+			<li ng-model="nine">
+  				<a ng-click="myFilter={chapter:'9'}" type="button" data-toggle="tab">Chapter 9</a>
+			</li>
+			<li ng-model="ten">
+  				<a ng-click="myFilter={chapter:'10'}" type="button" data-toggle="tab">Chapter 10</a>
+			</li>
+		</ul>
+	</div>
+	<div id="resourceContent">
+		<div class="row header">
+			<div class="col-sm-8 col-sm-offset-2">
+				<button ng-click="openResourceModal()" class='btn btn-lg btn-primary'>Add Resource</button>
+				<input placeholder="Search resources by..." class = "searchInput" type="text" ng-model="sortByName">
+			</div>
+		</div>
+		
+		<div class="resources row">	
+			<div class="col-sm-8 col-sm-offset-2 well" class="container" ng-repeat="resource in resources | filter: sortByName |filter: myFilter">
+			<h2>{{resource.topic}}</h2>
+			<h6>Chapter {{resource.chapter}}</h6>
+			<hr>
+				<p class="text"><span class="blue">Overview: </span><br> {{resource.overview}}</p>
+				<p class="link"><span class="blue">Link: </span><br> <a>{{resource.link}}</a></p>
+				<hr>
+				<p class= "authors">Submitted by: {{resource.name}}</p>
+				<p class="time">at: {{resource.date | date: 'h:mm a M/d/yy'}}</p>
+				<div class="col-sm-3 likes">
+    				<label for="resourceLikes"> <i class="fa fa-thumbs-up" aria-hidden="true"></i> {{resource.likes}}</label>	
+    				<a id="resourceLikes" ng-click="likeIt(resource)" class="btn like">Helpful, thanks!</a>		
+    			</div>
+    			<div class="likeBtns col-sm-3">
+    				<label for="resourceDislikes"> <i class="fa fa-thumbs-down" aria-hidden="true"></i> {{resource.dislikes}}</label>	
+    				<a id="resourceDislikes" ng-click="dislikeIt(resource)" class="btn dislike">Unhelpful.</a>	
+    			</div>
+
+			</div>
+		</div>
+	</div> <!-- container -->
+	<button ui-sref="home" class='btn btn-lg btn-primary left'>&laquo; Home</button>
+	<button ui-sref="posts" class='btn btn-lg btn-primary left'>&laquo; Posts</button>
+	<button ui-sref="pitches" class='btn btn-lg btn-primary right'>Pitches &raquo;</button>
+</main>
+
+<!--  RESOURCE MODAL -->
+<div class="row">
+    <div class="modal fade" id="resourceModal" tabindex="-1" role="dialog" aria-labelledby="resourceModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Add New Resource</h4>
+                </div>
+
+                <div class="modal-body">
+				<form ng-model="resource">
+                    <h4>Chapter: </h4>
+                    <label class="radio-inline">
+                        <input name="chapter" id="ctwo" value="2" type="radio" required>2
+                    </label>
+                    <label class="radio-inline">
+                        <input name="chapter" id="cthree" value="3" type="radio" required>3
+                    </label>
+                    <label class="radio-inline">
+                        <input name="chapter" id="cfour" value="4" type="radio">4
+                    </label>
+                    <label class="radio-inline">
+                        <input name="chapter" id="cfive" value="5" type="radio">5
+                    </label>
+                    <label class="radio-inline">
+                        <input name="chapter" id="csix" value="6" type="radio">6
+                    </label>
+                    <label class="radio-inline">
+                        <input name="chapter" id="cseven" value="7" type="radio">7
+                    </label>
+                    <label class="radio-inline">
+                        <input name="chapter" id="ceight" value="8" type="radio">8
+                    </label>
+                    <label class="radio-inline">
+                        <input name="chapter" id="cnine" value="9" type="radio">9
+                    </label>                       
+                    <label class="radio-inline">
+                        <input name="chapter" id="cten" value="10" type="radio">10
+                    </label>
+
+                    <label>Topic: </br>
+                        <textarea id="resTopic" Placeholder="E.g. Informed Consent" style="width: 300px; height: 50px;" required></textarea>
+                    </label>
+
+                    <label>Overview </br>
+                        <textarea id="resOverview" Placeholder="This resource is about..." style="width: 500px; height: 300px;" required></textarea>
+                    </label>
+                    <label>Name: </br>
+                        <textarea id="resName" Placeholder="Rory Gilmore" style="width: 300px; height: 50px;" required></textarea>
+                    </label>
+                     <label>Link </br>
+                        <textarea id="resLink" Placeholder="www.yourlink.com" style="width: 300px; height: 50px;" required></textarea>
+                    </label> 
+                </form>                                                       
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-secondary green" data-dismiss="modal" ng-click="addResource(resource)">Submit</button>
+                    <button type="button" class="btn btn-default green" ng-click="cancelResource()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- end resource modal -->

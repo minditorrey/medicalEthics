@@ -5,6 +5,8 @@
 		<p>Archive your work. Access the archives as a resource for research and review.</p>
 </section>
 
+<!-- Main Content -->
+
 <main id="chapters">
 	<div class="container header">
 		<h2>Select a Chapter</h2>
@@ -70,6 +72,9 @@
 			</div>
 		</div>
 	</div> <!-- container -->
+	<button ui-sref="home" class='btn btn-lg btn-primary left'>&laquo; Home</button>
+	<button ui-sref="resources" class='btn btn-lg btn-primary right'>Resources &raquo;</button>
+	<button ui-sref="pitches" class='btn btn-lg btn-primary right'>Pitches &raquo;</button>
 </main>
 
 <!--  POST MODAL -->
@@ -114,7 +119,7 @@
                     <label class="radio-inline">
                         <input name="chapter" id="ten" value="10" type="radio">10
                     </label>
-					<p ng-hide="chapterAlert">You must choose a chapter!</p>
+
                     <label>Topic: </br>
                         <textarea id="topic" Placeholder="E.g. Informed Consent" style="width: 300px; height: 50px;" required></textarea>
                     </label>
@@ -138,4 +143,4 @@
             </div>
         </div>
     </div>
-</div> <!-- end situation modal -->
+</div> <!-- end post modal -->

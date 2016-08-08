@@ -112,7 +112,103 @@ app.controller('pitchesController', function($scope) {
 
 });
 
-app.controller('resourcesController', function($scope) {
+app.controller('resourcesController', function($scope, ResourcesService) {
     console.log('resourcesCtrl!');
+
+	ResourcesService.getAll()
+    .then(res => {
+        $scope.resources = res.data;
+        console.log(res.data);
+        var resources = $scope.resources;
+    })
+    .catch(err => {
+        console.log('err:', err);
+    });
+
+    $scope.likeIt = (resource) => {
+		resource.likes += 1;
+		console.log('likes:', resource.likes);
+		ResourcesService.updateLikes(resource)
+		.then(res => {
+			console.log('resource.likes:', $scope.resources.likes);
+			console.log(res)
+		})
+	}
+
+	$scope.dislikeIt = (resource) => {
+		resource.dislikes += 1;
+		ResourcesService.updateDislikes(resource)
+		.then(res => {
+			console.log('resource.dislikes:', $scope.resources.dislikes);
+		})
+		
+	}
+
+	$scope.openResourceModal = function() {
+        $('#resourceModal').modal('show');
+    }
+
+    $scope.cancelResource = function(){
+        $('#resourceModal').modal('hide');
+    }
+
+
+    $scope.addResource = function() {
+    	$scope.name = $('#resName').val();
+		$scope.chapter = $('#resChapter').val();
+		$scope.topic = $('#resTopic').val();
+		$scope.link = $('#resLink').val();
+		$scope.overview = $('#resOverview').val();
+		
+    	if($('#ctwo').is(':checked')) {
+            $scope.chapter = "2";
+        } else if($('#cthree').is(':checked')) {
+            $scope.chapter = "3";
+        } else if($('#cfour').is(':checked')) {
+            $scope.chapter = "4";
+        } else if($('#cfive').is(':checked')) {
+            $scope.chapter = "5";
+        } else if($('#csix').is(':checked')) {
+            $scope.chapter = "6";
+        } else if($('#cseven').is(':checked')) {
+            $scope.chapter = "7";
+        } else if($('#ceight').is(':checked')) {
+            $scope.chapter = "8";
+        } else if($('#cnine').is(':checked')) {
+            $scope.chapter = "9";
+        } else if($('#cten').is(':checked')) {
+            $scope.chapter = "10";
+		};
+
+    	var resource = {
+    		name: $scope.name,
+    		chapter: $scope.chapter,
+    		topic: $scope.topic,
+    		link: $scope.link,
+    		overview: $scope.overview
+    	}
+		console.log('resource:', resource);
+
+    	$scope.resources.push(resource);
+
+    	if (!$scope.name || !$scope.chapter || !$scope.topic || !$scope.link || !$scope.overview) {
+        	swal({ 
+        		title: "Ooops!", 
+        		text: "You must complete all fields. Please click on Add Resource again and fill out all fields.",
+               	type: "warning", 
+               	closeOnConfirm: true 
+            });
+    	}
+
+    	ResourcesService.create(resource)
+        .then( (resource) => {
+            $('#resourceModal').modal('hide');
+            swal({ title: "Congrats!", text: "You have added a new resource.",
+                type: "success", closeOnConfirm: true }
+            );
+            // $state.go($state.current, {}, {reload: true});
+            
+        });
+    }
 
 });
