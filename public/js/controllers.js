@@ -47,13 +47,14 @@ app.controller('postsController', function($scope, $state, $rootScope, $statePar
         $('#postModal').modal('hide');
     }
 
+
     $scope.addPost = function() {
     	$scope.names = $('#names').val();
 		$scope.chapter = $('#chapter').val();
 		$scope.topic = $('#topic').val();
 		$scope.type = $('#type').val();
 		$scope.text = $('#text').val();
-
+		
     	if($('#two').is(':checked')) {
             $scope.chapter = "2";
         } else if($('#three').is(':checked')) {
@@ -84,6 +85,16 @@ app.controller('postsController', function($scope, $state, $rootScope, $statePar
 		console.log(post);
 
     	$scope.posts.push(post);
+
+    	if (!$scope.names || !$scope.chapter || !$scope.topic || !$scope.type || !$scope.text) {
+        	swal({ 
+        		title: "Ooops!", 
+        		text: "You must complete all fields. Please click on Add Post again and fill out all fields.",
+               	type: "warning", 
+               	closeOnConfirm: true 
+            });
+    	}
+
     	PostsService.create(post)
         .then( (post) => {
             $('#postModal').modal('hide');
