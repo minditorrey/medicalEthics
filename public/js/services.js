@@ -7,7 +7,7 @@ app.service('PostsService', function($http) {
     	return $http.get('/api/posts');
   	};
 
-	this.post = post => {
+	this.create = post => {
 		return $http.post('/api/posts', post);	
 	};
 

@@ -2,7 +2,7 @@
 
 <section id="postFeature" class="feature-image feature-image-default" data-type="background" data-speed="2">
 	<h1>Course Content</h1>
-		<p>Archive the results of your collaboration here. This page serves as a great resource for research and review.</p>
+		<p>Archive your work. Access the archives as a resource for research and review.</p>
 </section>
 
 <main id="chapters">
@@ -11,65 +11,131 @@
 	</div>
 	<div id="tabs" class="container">	
 		<ul class="nav nav-pills">
-			<li id="two" class="active">
-       			<a  href="#1a" data-toggle="tab">Chapter 2</a>
+			<li ng-model="two">
+       			<a ng-click="myFilter={chapter:'2'}" type="button" data-toggle="tab">Chapter 2</a>
 			</li>
-			<li id="three">
-				<a href="#2a" data-toggle="tab">Chapter 3</a>
+			<li ng-model="three">
+				<a ng-click="myFilter={chapter:'3'}" type="button" data-toggle="tab">Chapter 3</a>
 			</li>
-			<li id="four">
-				<a href="#3a" data-toggle="tab">Chapter 4</a>
+			<li ng-model="four">
+				<a ng-click="myFilter={chapter:'4'}" type="button" data-toggle="tab">Chapter 4</a>
 			</li>
-  			<li id="five">
-  				<a href="#4a" data-toggle="tab">Chapter 5</a>
+  			<li ng-model="five">
+  				<a ng-click="myFilter={chapter:'5'}" type="button" data-toggle="tab">Chapter 5</a>
 			</li>
-			<li id="six">
-  				<a href="#4a" data-toggle="tab">Chapter 6</a>
+			<li ng-model="six">
+  				<a ng-click="myFilter={chapter:'6'} "type="button" data-toggle="tab">Chapter 6</a>
 			</li>
-			<li id="seven">
-  				<a href="#4a" data-toggle="tab">Chapter 7</a>
+			<li ng-model="seven">
+  				<a ng-click="myFilter={chapter:'7'}" type="button" data-toggle="tab">Chapter 7</a>
 			</li>
-			<li id="eight">
-  				<a href="#4a" data-toggle="tab">Chapter 8</a>
+			<li ng-model="eight">
+  				<a ng-click="myFilter={chapter:'8'}" type="button" data-toggle="tab">Chapter 8</a>
 			</li>			
-			<li id="nine">
-  				<a href="#4a" data-toggle="tab">Chapter 9</a>
+			<li ng-model="nine">
+  				<a ng-click="myFilter={chapter:'9'}" type="button" data-toggle="tab">Chapter 9</a>
 			</li>
-			<li id="ten">
-  				<a href="#4a" data-toggle="tab">Chapter 10</a>
+			<li ng-model="ten">
+  				<a ng-click="myFilter={chapter:'10'}" type="button" data-toggle="tab">Chapter 10</a>
 			</li>
 		</ul>
 	</div>
 	<div id="content">
 		<div class="row header">
 			<div class="col-sm-8 col-sm-offset-2">
-				<button class='btn btn-lg btn-primary'>Add Post</button><br>
+				<button ng-click="openPostModal()" class='btn btn-lg btn-primary'>Add Post</button>
 				<input placeholder="Search posts by..." class = "searchInput" type="text" ng-model="sortByName">
 			</div>
 		</div>
 		
 		<div class="posts row">	
-			<div class="col-sm-8 col-sm-offset-2 well" class="container" ng-repeat="post in posts | filter: sortByName">
-			<h3>{{post.topic}}</h3>
+			<div class="col-sm-8 col-sm-offset-2 well" class="container" ng-repeat="post in posts | filter: sortByName |filter: myFilter">
+			<h2>{{post.topic}}</h2>
 			<h6>Chapter {{post.chapter}}</h6>
+			<h6 class="type">{{post.type}}</h6>
 			<hr>
 				<p class="text">{{post.text}}</p>
 				<hr>
 				<p class= "authors">Submitted by: {{post.names}}</p>
 				<p class="time">at: {{post.date | date: 'h:mm a M/d/yy'}}</p>
-				<p>{{post.tag}}</p>
-				<button class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i>
-				</button>
 				<div class="col-sm-3 likes">
     				<label for="postLikes"> <i class="fa fa-thumbs-up" aria-hidden="true"></i> {{post.likes}}</label>	
-    				<a id="postLikes" ng-click="likeIt(post)" class="btn like">Like</a>		
+    				<a id="postLikes" ng-click="likeIt(post)" class="btn like">Helpful, thanks!</a>		
     			</div>
     			<div class="likeBtns col-sm-3">
     				<label for="postDislikes"> <i class="fa fa-thumbs-down" aria-hidden="true"></i> {{post.dislikes}}</label>	
-    				<a id="postDislikes" ng-click="dislikeIt(post)" class="btn dislike">Dislike</a>	
+    				<a id="postDislikes" ng-click="dislikeIt(post)" class="btn dislike">Unhelpful.</a>	
     			</div>
 
 			</div>
 		</div>
 	</div> <!-- container -->
 </main>
+
+<!--  POST MODAL -->
+<div class="row">
+    <div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-labelledby="postModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Add New Chapter Post</h4>
+					<p>**You  must fill in all fields</p>
+                </div>
+
+                <div class="modal-body">
+
+                    <h4>Chapter: </h4>
+                    <label class="radio-inline">
+                        <input name="chapter" id="two" value="2" type="radio">2
+                    </label>
+                    <label class="radio-inline">
+                        <input name="chapter" id="three" value="3" type="radio">3
+                    </label>
+                    <label class="radio-inline">
+                        <input name="chapter" id="four" value="4" type="radio">4
+                    </label>
+                    <label class="radio-inline">
+                        <input name="chapter" id="five" value="5" type="radio">5
+                    </label>
+                    <label class="radio-inline">
+                        <input name="chapter" id="six" value="6" type="radio">6
+                    </label>
+                    <label class="radio-inline">
+                        <input name="chapter" id="seven" value="7" type="radio">7
+                    </label>
+                    <label class="radio-inline">
+                        <input name="chapter" id="eight" value="8" type="radio">8
+                    </label>
+                    <label class="radio-inline">
+                        <input name="chapter" id="nine" value="9" type="radio">9
+                    </label>                                  
+                    <label class="radio-inline">
+                        <input name="chapter" id="ten" value="10" type="radio">10
+                    </label>
+
+                    <label>Topic: </br>
+                        <textarea id="topic" Placeholder="E.g. Informed Consent" style="width: 300px; height: 50px;"></textarea>
+                    </label>
+
+                    <label>Type: </br>
+                        <textarea id="type" Placeholder="E.g. Keywords" style="width: 300px; height: 50px;"></textarea>
+                    </label>
+                    <label>Names: </br>
+                        <textarea id="names" Placeholder="Rick Grimes, Jane Goodall, Beyonce Knowles, Lorelai Gilmore, Bob Ross" style="width: 300px; height: 100px;"></textarea>
+                    </label>
+                     <label>Post: </br>
+                        <textarea id="text" Placeholder="Paste your work here" style="width: 500px; height: 300px;"></textarea>
+                    </label>                                                          
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary green" data-dismiss="modal" ng-click="addPost(post)">Submit</button>
+                    <button type="button" class="btn btn-default green" ng-click="cancelPost()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- end situation modal -->
