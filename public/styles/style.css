@@ -68,6 +68,20 @@ div.modal textarea {
 	background-color: #31BFB1;
 	color: white;
 }
+
+/*HEADER*/
+
+div.navbar-header h3 {
+	color: #31BFB1;
+	font-size: 
+}
+
+div.navbar-header h3 span.subtitle {
+	color: white;
+	font-size: .6em;
+}
+
+
 /*FOOTER*/
 
 footer {
@@ -89,6 +103,14 @@ footer a:hover {
 	color: #5c8bc4;
 }
 
+footer h3 {
+	color: #31BFB1;
+	margin-top: -3%;
+}
+footer span.subtitle {
+	color: white;
+	font-size: .6em;
+}
 
 /*HERO*/
 
@@ -123,6 +145,10 @@ footer a:hover {
 	padding: 0 10%;
 }
 
+#roles img {
+	height: 100%;
+	margin-top: 5%;
+}
 #roles .image-container {
 	display: flex;
   	justify-content: center;
