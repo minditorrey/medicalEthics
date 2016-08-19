@@ -178,6 +178,11 @@ footer span.subtitle {
 	font-size: 1.2em;
 }
 
+#uses .container .row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 
 /*POSTS*/
 
