@@ -8,8 +8,6 @@ var bodyParser = require('body-parser');
 var http = require('http');
 var path = require('path');
 var mongoose = require('mongoose');
-var babel = require('babel-polyfill');
-
 
 const MONGOURL = process.env.MONGODB_URI || 'mongodb://localhost/medicalethicsApp';
 
