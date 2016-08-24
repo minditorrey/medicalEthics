@@ -12,7 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/minditorrey/medicalEthics.git"
   },
-    "engines": {
+  "engines": {
     "node": "5.10.1",
     "npm": "3.8.3"
   },
@@ -28,5 +28,8 @@
     "express": "^4.14.0",
     "mongoose": "^4.5.8",
     "morgan": "^1.7.0"
+  },
+  "devDependencies": {
+    "babel-polyfill": "^6.13.0"
   }
 }
