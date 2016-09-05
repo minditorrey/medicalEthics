@@ -10,30 +10,30 @@ app.controller('homeController', function($scope) {
 app.controller('postsController', function($scope, $state, $rootScope, $stateParams, PostsService) {
     console.log('postsCtrl!');
 	PostsService.getAll()
-    .then(res => {
+    .then(function(res) {
         $scope.posts = res.data;
         console.log(res.data);
         var posts = $scope.posts;
     })
-    .catch(err => {
+    .catch(function(err) {
         console.log('err:', err);
     });
 
 
-    $scope.likeIt = (post) => {
+    $scope.likeIt = function(post) {
 		post.likes += 1;
 		console.log('likes:', post.likes);
 		PostsService.updateLikes(post)
-		.then(res => {
+		.then(function(res) {
 			console.log('post.likes:', $scope.posts.likes);
 			console.log(res)
 		})
 	}
 
-	$scope.dislikeIt = (post) => {
+	$scope.dislikeIt = function(post) {
 		post.dislikes += 1;
 		PostsService.updateDislikes(post)
-		.then(res => {
+		.then(function(res) {
 			console.log('post.dislikes:', $scope.posts.dislikes);
 		})
 		
@@ -96,7 +96,7 @@ app.controller('postsController', function($scope, $state, $rootScope, $statePar
     	}
 
     	PostsService.create(post)
-        .then( (post) => {
+        .then( function(post) {
             $('#postModal').modal('hide');
             swal({ title: "Congrats!", text: "You have added a new post.",
                 type: "success", closeOnConfirm: true }
@@ -111,29 +111,29 @@ app.controller('resourcesController', function($scope, ResourcesService) {
     console.log('resourcesCtrl!');
 
 	ResourcesService.getAll()
-    .then(res => {
+    .then(function(res) {
         $scope.resources = res.data;
         console.log(res.data);
         var resources = $scope.resources;
     })
-    .catch(err => {
+    .catch(function(err) {
         console.log('err:', err);
     });
 
-    $scope.likeIt = (resource) => {
+    $scope.likeIt = function(resource) {
 		resource.likes += 1;
 		console.log('likes:', resource.likes);
 		ResourcesService.updateLikes(resource)
-		.then(res => {
+		.then(function(res) {
 			console.log('resource.likes:', $scope.resources.likes);
 			console.log(res)
 		})
 	}
 
-	$scope.dislikeIt = (resource) => {
+	$scope.dislikeIt = function(resource) {
 		resource.dislikes += 1;
 		ResourcesService.updateDislikes(resource)
-		.then(res => {
+		.then(function(res) {
 			console.log('resource.dislikes:', $scope.resources.dislikes);
 		})
 		
@@ -196,7 +196,7 @@ app.controller('resourcesController', function($scope, ResourcesService) {
     	}
 
     	ResourcesService.create(resource)
-        .then( (resource) => {
+        .then(function(resource) {
             $('#resourceModal').modal('hide');
             swal({ title: "Congrats!", text: "You have added a new resource.",
                 type: "success", closeOnConfirm: true }
@@ -210,29 +210,29 @@ app.controller('pitchesController', function($scope, PitchesService) {
     console.log('pitchesCtrl!');
 
 	PitchesService.getAll()
-    .then(res => {
+    .then(function(res) {
         $scope.pitches = res.data;
         console.log(res.data);
         var pitches = $scope.pitches;
     })
-    .catch(err => {
+    .catch(function(err) {
         console.log('err:', err);
     });
 
-    $scope.likeIt = (pitch) => {
+    $scope.likeIt = function(pitch) {
 		pitch.likes += 1;
 		console.log('likes:', pitch.likes);
 		PitchesService.updateLikes(pitch)
-		.then(res => {
+		.then(function(res) {
 			console.log('pitch.likes:', $scope.pitches.likes);
 			console.log(res)
 		})
 	}
 
-	$scope.dislikeIt = (pitch) => {
+	$scope.dislikeIt = function(pitch) {
 		pitch.dislikes += 1;
 		pitchsService.updateDislikes(pitch)
-		.then(res => {
+		.then(function(res) {
 			console.log('pitches.dislikes:', $scope.pitches.dislikes);
 		})	
 	}
@@ -278,7 +278,7 @@ app.controller('pitchesController', function($scope, PitchesService) {
     	}
 
     	PitchesService.create(pitch)
-        .then( (pitch) => {
+        .then(function(pitch) {
             $('#pitchModal').modal('hide');
             swal({ title: "Congrats!", text: "You have added a new pitch.",
                 type: "success", closeOnConfirm: true }
