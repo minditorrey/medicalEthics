@@ -21,6 +21,9 @@
 			<li ng-model="death">
 				<a ng-click="myFilter={category:'Life and Death'}" type="button" data-toggle="tab">Life and Death</a>
 			</li>
+            <li ng-model="justice">
+                <a ng-click="myFilter={category:'Health Care Justice'}" type="button" data-toggle="tab">Health Care Justice</a>
+            </li>
 		</ul>
 	</div>
 	<div id="pitchContent">
@@ -79,6 +82,9 @@
                     </label>
                     <label class="radio-inline">
                         <input name="category" id="death" value="Life and Death" type="radio" required>Life and Death
+                    </label>
+                    <label class="radio-inline">
+                        <input name="category" id="justice" value="Health Care Justice" type="radio" required>Health Care Justice
                     </label>
 
                     <label>Topic: </br>

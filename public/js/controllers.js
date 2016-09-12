@@ -256,6 +256,8 @@ app.controller('pitchesController', function($scope, PitchesService) {
             $scope.category = "Doctors and Patients";
         } else if($('#death').is(':checked')) {
             $scope.category = "Life and Death";
+        } else if($('#justice').is(':checked')) {
+            $scope.category = "Health Care Justice";
         } 
 
     	var pitch = {
