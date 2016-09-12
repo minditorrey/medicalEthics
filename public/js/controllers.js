@@ -169,8 +169,8 @@ app.controller('resourcesController', function($scope, ResourcesService) {
             $scope.chapter = "7";
         } else if($('#ceight').is(':checked')) {
             $scope.chapter = "8";
-        } else if($('#cnine').is(':checked')) {
-            $scope.chapter = "9";
+        } else if($('#celeven').is(':checked')) {
+            $scope.chapter = "11";
         } else if($('#cten').is(':checked')) {
             $scope.chapter = "10";
 		};
