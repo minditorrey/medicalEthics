@@ -69,8 +69,8 @@ app.controller('postsController', function($scope, $state, $rootScope, $statePar
             $scope.chapter = "7";
         } else if($('#eight').is(':checked')) {
             $scope.chapter = "8";
-        } else if($('#nine').is(':checked')) {
-            $scope.chapter = "9";
+        } else if($('#eleven').is(':checked')) {
+            $scope.chapter = "11";
         } else if($('#ten').is(':checked')) {
             $scope.chapter = "10";
 		};
