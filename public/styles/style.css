@@ -29,6 +29,10 @@ header .navbar a:hover {
 	color: #5c8bc4;
 }
 
+textarea {
+	white-space: pre-wrap;
+}
+
 .feature-image {
 	width: 100%;
 }
